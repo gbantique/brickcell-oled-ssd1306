@@ -1,31 +1,25 @@
-let item = 0
-Brickcell.oled_ssd1306.initOLED(60)
-Brickcell.oled_ssd1306.drawRect(
+let ssd1306 = Brickcell.create(60)
+let counter = 0
+ssd1306.drawRect(
     0,
     0,
-    60,
-    30,
+    63,
+    31,
     1
 )
-Brickcell.oled_ssd1306.showString(
-    0,
-    0,
-    "Brickcell",
-    1
-)
-Brickcell.oled_ssd1306.showString(
-    0,
+ssd1306.showString(
     1,
-    "Hello",
+    2,
+    "Brickcell!",
     0
 )
 basic.forever(function () {
-    Brickcell.oled_ssd1306.showNumber(
-        0,
-        3,
-        item,
+    ssd1306.showNumber(
+        1,
+        1,
+        counter,
         1
     )
-    item += 1
+    counter += 1
     basic.pause(1000)
 })
